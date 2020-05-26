@@ -19,7 +19,7 @@ class Actor < ApplicationRecord
   end
 
   def filmography
-    array_of_movie_ids = self.characters.pluck(:movie_id)
+    array_of_movie_ids = self.characters.map_relation_to_array(:movie_id)
 
     return Movie.where({ :id => array_of_movie_ids })
   end

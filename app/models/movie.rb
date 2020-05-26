@@ -38,7 +38,7 @@ class Movie < ApplicationRecord
   end
 
   def cast
-    array_of_actor_ids = self.characters.pluck(:actor_id)
+    array_of_actor_ids = self.characters.map_relation_to_array(:actor_id)
 
     return Actor.where({ :id => array_of_actor_ids })
   end

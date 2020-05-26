@@ -49,9 +49,4 @@ Rails.application.routes.draw do
   get("/characters", { :controller => "characters", :action => "index" })
   get("/characters/:the_character_id", { :controller => "characters", :action => "show" })
 
-
-
-  # ====== Routes for Admin Dashboard ==============
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 end
